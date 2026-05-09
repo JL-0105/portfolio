@@ -101,6 +101,7 @@ img {
 }
 
 .hero {
+  position: relative;
   min-height: 520px;
   display: flex;
   align-items: center;
@@ -138,6 +139,21 @@ img {
   font-size: clamp(18px, 2.4vw, 28px);
   font-weight: 500;
   line-height: 1.55;
+}
+
+.hero-name {
+  position: absolute;
+  right: clamp(24px, 7vw, 86px);
+  bottom: clamp(28px, 5vw, 62px);
+  max-width: min(460px, calc(100% - 48px));
+  margin: 0;
+  padding-top: 16px;
+  color: rgba(255, 255, 255, 0.92);
+  border-top: 1px solid rgba(255, 255, 255, 0.42);
+  font-size: clamp(15px, 2vw, 22px);
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: right;
 }
 
 .banner-section {
@@ -249,9 +265,13 @@ img {
 }
 
 .semester {
-  margin: 0 0 18px;
+  margin: 28px 0 18px;
   color: var(--deep-blue);
   font-weight: 800;
+}
+
+.timeline-item h3 + .semester {
+  margin-top: 0;
 }
 
 .arrow-list {
@@ -299,20 +319,40 @@ img {
 
 .news-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .news-card {
-  min-height: 230px;
-  padding: 28px;
+  position: relative;
+  min-height: 260px;
+  padding: clamp(30px, 4vw, 46px);
   background: var(--white);
   border: 1px solid rgba(5, 49, 127, 0.12);
   border-radius: 8px;
 }
 
+.news-card::before {
+  display: block;
+  width: 46px;
+  height: 4px;
+  margin-bottom: 30px;
+  content: "";
+  background: var(--blue);
+}
+
 .news-card h3 {
-  margin-top: 24px;
+  margin: 0 0 18px;
+  color: var(--deep-blue);
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.15;
+}
+
+.news-card p {
+  max-width: 620px;
+  font-size: clamp(18px, 2vw, 23px);
+  font-weight: 500;
+  line-height: 1.75;
 }
 
 .site-footer {
@@ -338,6 +378,12 @@ img {
   .hero {
     min-height: 600px;
     background: var(--blue);
+  }
+
+  .hero-name {
+    left: 24px;
+    right: 24px;
+    text-align: left;
   }
 
   .summary-grid,
